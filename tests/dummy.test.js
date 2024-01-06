@@ -5,4 +5,4 @@ test('dummy returns one', () => {
 
     const result = listHelper.dummy(blogs)
     expect(result).toBe(1)
-})
+}) 

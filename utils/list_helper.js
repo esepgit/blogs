@@ -1,4 +1,4 @@
-const dummy = (blogs) => {
+const dummy = (blogs) => { 
     return 1
 }
 
@@ -7,7 +7,7 @@ const totalLikes = (blogs) => {
         return acc + act.likes
     }, 0)
 
-    return blogs.length === 0 ? 0: total
+    return blogs.length === 0 ? 0 : total
 }
 
 const favoriteBlog = (blogs) => {
