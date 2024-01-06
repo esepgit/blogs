@@ -17,6 +17,14 @@ describe('api test', () => {
 
         expect(response.body).toHaveLength(3)
     })
+
+    test('identifier id is defined', async () => {
+        const response = await api.get('/api/blogs')
+
+        const ids = response.body.map(r => r.id)
+
+        expect(ids).toBeDefined();
+    }) 
 });
 
 afterAll(() => {
