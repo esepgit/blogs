@@ -78,6 +78,23 @@ describe('api test', () => {
         expect(titles).toContain('Best PC Games')
 
     })
+
+    test('if likes not exists, likes = 0', async () => {
+        const newBlog = {
+            title: "Zero likes",
+            author: "Cyro Longa",
+            url: "http://cyro.blogs.com",
+        }
+
+        await api
+            .post('/api/blogs')
+            .send(newBlog)
+
+        const response = await api.get('/api/blogs')
+        const blog = response.body.find(r => r.title === 'Zero likes')
+
+        expect(blog.likes).toBe(0)
+    })
 });
 
 afterAll(() => {
