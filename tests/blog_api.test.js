@@ -79,7 +79,7 @@ describe('api test', () => {
 
     })
 
-    test('if likes not exists, likes = 0', async () => {
+    test('if likes do not exists, likes = 0', async () => {
         const newBlog = {
             title: "Zero likes",
             author: "Cyro Longa",
@@ -94,6 +94,18 @@ describe('api test', () => {
         const blog = response.body.find(r => r.title === 'Zero likes')
 
         expect(blog.likes).toBe(0)
+    })
+
+    test('if title and url do not exists, response 400', async () => {
+        const newBlog = {
+            author: "Kakashi Hatake",
+            likes: 500,
+        }
+
+        await api
+            .post('/api/blogs')
+            .send(newBlog)
+            .expect(400)
     })
 });
 
