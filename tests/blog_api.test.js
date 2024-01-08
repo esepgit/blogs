@@ -3,6 +3,7 @@ const supertest = require('supertest');
 const app = require('../app');
 const api = supertest(app);
 const Blog = require('../models/blog');
+const User = require('../models/user');
 
 const initialBlogs = [
    {
@@ -24,6 +25,15 @@ const initialBlogs = [
     likes: 345,
    }
 ]
+
+const initialUsers = [
+    {
+        username: "captaineula",
+        name: "Eula",
+        password: "cryo"
+    }
+]
+
 beforeEach(async () => {
     await Blog.deleteMany({})
     let blogObject = new Blog(initialBlogs[0])
@@ -32,6 +42,10 @@ beforeEach(async () => {
     await blogObject.save()
     blogObject = new Blog(initialBlogs[2])
     await blogObject.save()
+
+    await User.deleteMany({})
+    let userObject = new User(initialUsers[0])
+    await userObject.save()
 })
 
 describe('api test', () => {
@@ -107,6 +121,42 @@ describe('api test', () => {
             .send(newBlog)
             .expect(400)
     })
+});
+
+describe('users test', () => {
+   test('invalid name length return error code 400', async () => {
+    const response = await api.get('/api/users')
+        
+    const newInvalidUser = {
+        name: "to",
+        password: "aqua"
+    }
+
+    await api
+        .post('/api/users')
+        .send(newInvalidUser)
+        .expect(400)
+
+    expect(response.body).toHaveLength(initialUsers.length)
+   }); 
+
+   test('username repeat return error 400', async () => {
+    const response = await api.get('/api/users')
+
+    const newInvalidUser = {
+        username: "captaineula",
+        name: "Frijol",
+        password: "cryo"
+    }
+
+    await api
+        .post('/api/users')
+        .send(newInvalidUser)
+        .expect(400)
+
+    expect(response.body).toHaveLength(initialUsers.length)
+   })
+
 });
 
 afterAll(() => {
