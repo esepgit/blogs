@@ -3,8 +3,8 @@ Content-Type: application/json
 Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImNhcHRhaW5rYWV5YSIsImlkIjoiNjU5YmU1ZWRmZjEwNWI2YTA1ZTlkZWQzIiwiaWF0IjoxNzA0NzI0MTUyfQ.aq19W3wgj68WaXlZCjCyqxmLhtQsLR1XPRZdfzX11aw
 
 {
-    "title": "Metellicana",
-    "author": "Serj Tankian",
-    "url": "http://soad.blog.com",
-    "likes": 20000
+    "title": "Tokens are great",
+    "author": "Hacker man",
+    "url": "http://tokens.blog.com",
+    "likes": 2000
 }
