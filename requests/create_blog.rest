@@ -1,10 +1,10 @@
 post http://localhost:3003/api/blogs
 Content-Type: application/json
-Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImNhcHRhaW5rYWV5YSIsImlkIjoiNjU5YmU1ZWRmZjEwNWI2YTA1ZTlkZWQzIiwiaWF0IjoxNzA0NzI0MTUyfQ.aq19W3wgj68WaXlZCjCyqxmLhtQsLR1XPRZdfzX11aw
+Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImNyaW1zb24iLCJpZCI6IjY1OWU5MzFkYzMzYjEwYmYxMDZhMzdhMiIsImlhdCI6MTcwNDg5NzkyNH0.b-gJlQr2YLKRtdNoK9g6f9oGZWxGg9JaoEJfIOOj-XU
 
 {
-    "title": "Tokens are great",
-    "author": "Hacker man",
-    "url": "http://tokens.blog.com",
-    "likes": 2000
+    "title": "Dodoco are great",
+    "author": "Klee",
+    "url": "http://klee.blog.com",
+    "likes": 5000
 }
