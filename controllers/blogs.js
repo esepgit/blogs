@@ -4,7 +4,7 @@ const Blog = require('../models/blog')
 require('dotenv').config()
 
 blogsRouter.get('/', async (request, response) => {
-    const blogs = await Blog.find({}).populate('user', { username: 1, name: 1 })
+    const blogs = await Blog.find({}).populate('user', { username: 1, name: 1 }).populate('comments', { content: 1 })
     response.json(blogs)
   })
   
@@ -22,15 +22,21 @@ blogsRouter.post('/', middleware.userExtractor, async (request, response, next) 
     author: body.author,
     url: body.url,
     likes: body.likes || 0,
-    user: user._id
+    user: user._id,
+    comments: []
   })
 
   try {
     const savedBlog = await blog.save()
     user.blogs = user.blogs.concat(savedBlog._id)
     await user.save()
+
+    const recoveredBlog = await Blog.findById(savedBlog.id).populate("user", {
+      username: 1,
+      name: 1,
+    });
     
-    return response.json(savedBlog)
+    return response.json(recoveredBlog)
   } catch(exception) {
     next(exception)
   }

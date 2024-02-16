@@ -1,9 +1,9 @@
 post http://localhost:3003/api/blogs
 Content-Type: application/json
-Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImNyaW1zb24iLCJpZCI6IjY1OWU5MzFkYzMzYjEwYmYxMDZhMzdhMiIsImlhdCI6MTcwNDg5NzkyNH0.b-gJlQr2YLKRtdNoK9g6f9oGZWxGg9JaoEJfIOOj-XU
+Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImNyaW1zb24iLCJpZCI6IjY1YjUxZmRmYmFjYjBkOTk1ZWRlNDVkNSIsImlhdCI6MTcwODEwMDY2MX0.3ZgoKrtJkx2WAzBkIteg1j5eeN1oKwV3ku-xubGFiBE
 
 {
-    "title": "Dodoco are great",
+    "title": "New commnets o.o",
     "author": "Klee",
     "url": "http://klee.blog.com",
     "likes": 5000
